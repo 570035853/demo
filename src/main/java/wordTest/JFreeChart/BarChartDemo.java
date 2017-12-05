@@ -1,10 +1,8 @@
-package wordTest;
+package wordTest.JFreeChart;
 
 import java.awt.Font;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 import javax.swing.JFrame;
 
@@ -77,14 +75,6 @@ public class BarChartDemo {
         }
 
         byte[] byteArray = byteArrayOutputStream.toByteArray();
-//        try {
-//            InputStream inputStream = new ByteArrayInputStream(byteArray);
-//            byteArray = new byte[inputStream.available()];
-//            inputStream.read(byteArray);
-//            inputStream.close();
-//        }catch (Exception e){
-//
-//        }
         return base64Encoder.encode(byteArray);
 
 
