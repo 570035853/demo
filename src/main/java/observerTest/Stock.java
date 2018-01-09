@@ -1,0 +1,21 @@
+package observerTest;
+
+import java.math.BigDecimal;
+import java.util.Observable;
+
+/**
+ * Created by zoujialei on 18/1/8.
+ */
+public class Stock extends Observable{
+    private BigDecimal price;
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        super.setChanged();
+        super.notifyObservers(price);
+        this.price = price;
+    }
+}
