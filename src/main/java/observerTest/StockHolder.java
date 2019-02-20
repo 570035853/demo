@@ -14,15 +14,15 @@ public class StockHolder implements Observer{
         String className = this.getClass().getName();
         System.out.println("class:" + className + " price:" + (BigDecimal) arg);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(1000);
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        });
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    Thread.sleep(1000);
+//                }catch (Exception e){
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
     }
 }

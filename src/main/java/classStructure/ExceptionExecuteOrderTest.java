@@ -1,5 +1,6 @@
 package classStructure;
 
+import java.io.IOException;
 import java.util.concurrent.ConcurrentSkipListMap;
 
 /**
@@ -42,9 +43,9 @@ public class ExceptionExecuteOrderTest {
         }finally {
             x++;
             System.out.println("finally block, x =" + x);
-            int z = x/0;
-            System.out.println("finally block, z =" + x);
-//            return x;  //直接回控制转移
+//            int z = x/0;
+//            System.out.println("finally block, z =" + x);
+            return x;  //直接回控制转移
         }
     }
 }

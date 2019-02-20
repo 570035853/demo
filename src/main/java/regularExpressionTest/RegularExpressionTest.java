@@ -20,6 +20,15 @@ public class RegularExpressionTest {
         System.out.println("exist:"+exist(exist));
         System.out.println("notExist:"+exist(notExist));
 
+        System.out.println("\\\n");
+        System.out.println("\\");
+        System.out.println("\\d");
+
+        System.out.println("\n");
+        System.out.println("\\.");
+//        System.out.println("\d"); //会报错
+        System.out.println("\\d"); //会报错
+
     }
 
     private static boolean isMobile(String mobile){

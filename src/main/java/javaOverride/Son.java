@@ -2,6 +2,7 @@ package javaOverride;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Created by zoujialei on 2018/5/21.
@@ -17,6 +18,7 @@ public class Son extends Father{
 //    protected int getAge(){
 //        return 50;
 //    }
+
 
     @Override
     public int getAge(){

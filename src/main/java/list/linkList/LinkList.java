@@ -1,5 +1,6 @@
 package list.linkList;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -92,10 +93,51 @@ public class LinkList<E extends Comparable<E>> {
 
     }
 
+    /**
+     * 1. 实际上pre、cur、next都要记录下来，之后才做指向变更，和人在做这件事的时候，将这三个记录在大脑里是一样的
+     * 2. 初始的head节点要单独记录，其指针指向，要指向为空
+     * @param head
+     * @return
+     */
+    public static LinkListNode reverseHead(LinkListNode head){
+
+        if(head == null){
+            return head;
+        }
+
+        LinkListNode pre = head;
+        LinkListNode cur = head.next;
+        LinkListNode next = null;
+        while (cur != null){
+            next = cur.next;
+            cur.next = pre;
+
+            pre = cur;
+            cur = next;
+        }
+
+        head.next = null;
+        head = pre;
+        return head;
+
+
+    }
+
+
 
     public static String printAll(LinkList list){
         String nodes = "LinkListNode: size:"+list.size + " elements: ";
         LinkListNode current = list.head.next;
+        while (current !=null){
+            nodes = nodes + current.value.toString()+" ";
+            current = current.next;
+        }
+        return nodes;
+    }
+
+    public static String printNode(LinkListNode head){
+        String nodes =  " elements: ";
+        LinkListNode current = head;
         while (current !=null){
             nodes = nodes + current.value.toString()+" ";
             current = current.next;
@@ -115,15 +157,16 @@ public class LinkList<E extends Comparable<E>> {
 
 //        System.out.println("invert result: " + printAll(invert(integerLinkList)));
 
+        System.out.println("invert result: " + printNode(reverseHead(integerLinkList.head.next)));
 
-        integerLinkList.del(new LinkListNode(23));
-
-        System.out.println("result: " + printAll(integerLinkList));
-
-        integerLinkList.del(new LinkListNode(24));
-        System.out.println("result: " + printAll(integerLinkList));
-
-        List<String> stringList = new LinkedList<String>();
+//        integerLinkList.del(new LinkListNode(23));
+//
+//        System.out.println("result: " + printAll(integerLinkList));
+//
+//        integerLinkList.del(new LinkListNode(24));
+//        System.out.println("result: " + printAll(integerLinkList));
+//
+//        List<String> stringList = new LinkedList<String>();
 
     }
 

@@ -12,6 +12,9 @@ public class Father {
         return 50;
     }
 
+    Father(){
+
+    }
 
     public String getName(String file) throws IOException{
         File nameList = new File(file);

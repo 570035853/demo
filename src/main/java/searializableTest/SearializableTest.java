@@ -4,9 +4,19 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Hashtable;
+import java.util.Map;
 
 /**
  * Created by zoujialei on 17/11/26.
+ *<pre>
+ public class Demo {
+@DemoAnnotation
+public void demoMethod() {
+}
+}
+ </pre>
+ *
  * 参考网址：https://www.ibm.com/developerworks/cn/java/j-lo-serial/index.html
  * 主要知识点：
  * 1.序列化ID，如果存储前和存储后不一样，反序列化会失败，报错“id不一致”；

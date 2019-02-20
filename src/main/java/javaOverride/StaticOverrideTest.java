@@ -43,6 +43,7 @@ class Parent{
     public static void name(){
         System.out.println("static method from Parent");
     }
+
 }
 
 class Child extends Parent{
@@ -54,7 +55,9 @@ class Child extends Parent{
      * will be called, also any call to name() in this particular
      * class will go to this method, because super class method is hidden.
      */
+
     public static void name(){
         System.out.println("static method from Child");
     }
+
 }
