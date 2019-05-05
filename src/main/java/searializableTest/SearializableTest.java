@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by zoujialei on 17/11/26.
  *<pre>
- public class Demo {
+ public class SemaphoreDemo {
 @DemoAnnotation
 public void demoMethod() {
 }
@@ -44,13 +44,13 @@ public class SearializableTest {
      */
     private static void testAttribute(){
         try {
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("/Users/admin/ls/test.obj"));
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("/Users/admin/ls/_17_skiplist.obj"));
             A aIn = new A();
             A.staticValue = 10;
             out.writeObject(aIn);
             out.close();
 
-            ObjectInputStream in = new ObjectInputStream(new FileInputStream("/Users/admin/ls/test.obj"));
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("/Users/admin/ls/_17_skiplist.obj"));
             A.staticValue = 5;
             A aOut = (A)in.readObject();
             in.close();
@@ -67,7 +67,7 @@ public class SearializableTest {
      */
     private static void testSearializableId(){
         try {
-            ObjectInputStream in = new ObjectInputStream(new FileInputStream("/Users/admin/ls/test.obj"));
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("/Users/admin/ls/_17_skiplist.obj"));
             A aOut = (A)in.readObject();
             in.close();
             System.out.println("A staticValue:" + aOut.staticValue);

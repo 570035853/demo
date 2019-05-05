@@ -48,6 +48,7 @@ public class SurroundedRegions {
      * 4. DFS是深度优先遍历，BFS是广度优先遍历
      * 看ref：
      https://leetcode.com/problems/surrounded-regions/discuss/41633/Java-DFS-%2B-boundary-cell-turning-solution-simple-and-clean-code-commented.
+     * 3月4日在纸上写了一遍
      * @param board
      */
     public void solve(char[][] board) {
@@ -109,6 +110,7 @@ public class SurroundedRegions {
         if (i < 0 || i > board.length - 1 || j <0 || j > board[0].length - 1){
             return;
         }
+        //todo 验证下条件判断不需要，if (board[i][j] == 'O')，因为外围保证了进来就满足该条件，直接可以进行星设置
         if (board[i][j] == 'O'){
             board[i][j] = '*';
         }

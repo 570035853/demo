@@ -22,5 +22,6 @@ public class FunctionalProgrammingTest {
     public static void main(String[] args) {
         Long result = subtract(multiply(add(1L,2L), 3L), 4L);
         System.out.println("result:" + result);
+
     }
 }

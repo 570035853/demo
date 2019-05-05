@@ -1,11 +1,14 @@
 package leetcode.Algorithms._1_100._3_LengthOfLongestSubstring;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
  * Created by jialei.zou on 2018/12/10 .
- * ref：https://leetcode.com/problems/longest-substring-without-repeating-characters/solution/
+ * ref：
+ https://leetcode.com/problems/longest-substring-without-repeating-characters/solution/
  */
 public class LengthOfLongestSubString {
 
@@ -79,6 +82,26 @@ public class LengthOfLongestSubString {
             else {
                 set.remove(s.charAt(i++));
             }
+        }
+        return ans;
+    }
+
+
+    /**
+     *
+     * @param s
+     * @return
+     */
+    public int lengthOfLongestSubstringOptimize(String s) {
+        int n = s.length(), ans = 0;
+        Map<Character, Integer> map = new HashMap<>(); // current index of character
+        // try to extend the range [i, j]
+        for (int j = 0, i = 0; j < n; j++) {
+            if (map.containsKey(s.charAt(j))) {
+                i = Math.max(map.get(s.charAt(j)), i);
+            }
+            ans = Math.max(ans, j - i + 1);
+            map.put(s.charAt(j), j + 1);
         }
         return ans;
     }

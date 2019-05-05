@@ -41,10 +41,11 @@ public class OcrDeal {
 
     public static void main(String[] args) {
         try {
-            Set<String> userIds = getUserId("/Users/zou/Documents/ls/userIds.txt");
+            Set<String> userIds = getUserId("/Users/zou/Documents/FHJR/bx/线上用户处理/auth_user_id_list.csv");
+            int i=0;
             for (String userId: userIds){
-                String result = postRequestStr("http://10.10.52.180:17117/admin/insertUserPayForbidRecordOrUpdate/"+userId);
-                System.out.println(userId+":"+result);
+                String result = postRequestStr("http://10.10.52.180:17117/admin/delUserCache/"+userId);
+                System.out.println(userId+":"+result+"i:"+i++);
             }
         }catch (Exception e){
             e.printStackTrace();

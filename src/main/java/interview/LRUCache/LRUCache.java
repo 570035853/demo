@@ -5,7 +5,8 @@ import java.util.Map;
 
 /**
  * Created by zoujialei on 2018/7/6.
- * ref: https://yikun.github.io/2015/04/03/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AALRU-Cache
+ * ref:
+ https://yikun.github.io/2015/04/03/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AALRU-Cache
  */
 public class LRUCache<E> {
 

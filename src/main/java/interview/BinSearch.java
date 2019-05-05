@@ -9,20 +9,23 @@ public class BinSearch {
     public static void main(String[] args) {
         int array[] = {1, 2, 6, 10, 15, 22, 77, 101, 109, 123};
 
-        System.out.println(binSearch(array, 6));
-        System.out.println(binSearch(array, 7));
+//        System.out.println(binSearch(array, 6));
+//        System.out.println(binSearch(array, 7));
 
         int arrayMin1[] = {3, 4, 5, 1, 2};
         int arrayMin2[] = {1, 0, 1, 1, 1};
         int arrayMin3[] = {1, 1, 1, 0, 1};
 
         int arrayMind7[] ={3, 5, 6 ,8 ,9,10};
+        int arrayMind8[] ={6};
 
 
-        System.out.println(getMin(arrayMin1));
-        System.out.println(getMin(arrayMin2));
-        System.out.println(getMin(arrayMin3));
+//        System.out.println(getMin(arrayMin1));
+//        System.out.println(getMin(arrayMin2));
+//        System.out.println(getMin(arrayMin3));
         System.out.println(findLastSmallerItem(arrayMind7, 7));
+        System.out.println(findLastSmallerItem(arrayMind8, 7));
+
 
     }
 
@@ -105,6 +108,7 @@ public class BinSearch {
      *    =是为了保证如下情况 2 3,需要查找3  开始low是2, high是3, 下一次之后low和high都是3，要进来这一次
      * 2. 二分查找比较的都是mid和target的值
      * 3. <向右移动，所以<=做判断是找到最有右边的，反之>向左移动，>=做判断是找到最左边的
+     * 4. 对于只有一个元素的情况，需要做边界判断，否则array[mid+1]这种条件可能会越界，所以需要增加条件mid == array.length-1
      */
     private static int findLastSmallerItem(int array[],int target){
         int low = 0;
@@ -114,7 +118,7 @@ public class BinSearch {
             if(array[mid]> target){
                 high = mid-1;
             }else {
-                if(array[mid+1]>target){
+                if(mid == array.length-1 || array[mid+1]>target){
                     return array[mid];
                 }else {
                     low = mid +1;

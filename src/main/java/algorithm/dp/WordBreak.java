@@ -92,6 +92,8 @@ public class WordBreak {
 
     /**
      https://leetcode.com/problems/word-break/discuss/43790/Java-implementation-using-DP-in-two-ways
+     总结：1. dp的目标计算还是要确定f[i]是否可达
+          2. f[0] = true;的设置默认实际字符串前的一个位置是可以到达的，这也是可以理解的初始化
      * @param s
      * @param dict
      * @return
