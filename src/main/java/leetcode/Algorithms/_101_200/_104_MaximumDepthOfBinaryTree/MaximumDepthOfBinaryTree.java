@@ -53,7 +53,7 @@ public class MaximumDepthOfBinaryTree {
 
 
     /**
-     * 简介的代码
+     * 简洁的代码
      * @param root
      * @return
      */

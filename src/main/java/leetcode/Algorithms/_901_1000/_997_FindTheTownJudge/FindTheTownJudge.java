@@ -1,8 +1,6 @@
 package leetcode.Algorithms._901_1000._997_FindTheTownJudge;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by jialei.zou on 2019/5/4 .
@@ -59,6 +57,33 @@ public class FindTheTownJudge {
         return result;
     }
 
+    /**
+     *  todo 有必要看下这个他是怎么想出来的
+     * @param N
+     * @param trust
+     * @return
+     */
+    public static int findJudgeResShufeng(int N, int[][] trust) {
+        int[] arr = new int[N + 1];
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < trust.length; i++) {
+            if (trust[i].length > 0) {
+                arr[trust[i][1]]++;
+                set.add(trust[i][0]);
+            }
+        }
+
+        if (set.size() != N - 1) {
+            System.out.println(set.size());
+            return -1;
+        }
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] == N - 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
     public static void main(String[] args) {
         FindTheTownJudge findTheTownJudge = new FindTheTownJudge();
@@ -69,9 +94,6 @@ public class FindTheTownJudge {
         System.out.println(findTheTownJudge.findJudge(3, new int[][]{{1,3},{2,3},{3,1}}));
         System.out.println(findTheTownJudge.findJudge(3, new int[][]{{1,2},{2,3}}));
         System.out.println(findTheTownJudge.findJudge(4, new int[][]{{1,3},{1,4},{2,3},{2,4},{4,3}}));
-
-
-
 
 
     }

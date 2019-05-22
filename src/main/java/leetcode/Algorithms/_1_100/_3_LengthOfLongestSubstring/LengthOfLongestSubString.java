@@ -9,11 +9,48 @@ import java.util.Set;
  * Created by jialei.zou on 2018/12/10 .
  * ref：
  https://leetcode.com/problems/longest-substring-without-repeating-characters/solution/
+
+ Given a string, find the length of the longest substring without repeating characters.
+
+ Example 1:
+
+ Input: "abcabcbb"
+ Output: 3
+ Explanation: The answer is "abc", with the length of 3.
+ Example 2:
+
+ Input: "bbbbb"
+ Output: 1
+ Explanation: The answer is "b", with the length of 1.
+ Example 3:
+
+ Input: "pwwkew"
+ Output: 3
+ Explanation: The answer is "wke", with the length of 3.
+ Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
+
+
  */
 public class LengthOfLongestSubString {
 
     public int myLengthOfLongestSubstring(String s) {
-        return 0;
+        if(s == null || s==""){
+            return 0;
+        }
+        int from=0, to=0, result =0;
+        char[] arrays = s.toCharArray();
+        Set<Character> set = new HashSet<>();
+        while (to<arrays.length){
+            if(!set.contains(arrays[to])){
+                set.add(arrays[to]);
+                to++;
+                result = Math.max(result, to-from);
+            }else {
+                set.remove(arrays[from]);
+                from++;
+            }
+        }
+        return result;
     }
 
 
@@ -42,6 +79,7 @@ public class LengthOfLongestSubString {
     /**
      * 1. 滑动窗口想法
      * 2. while条件的实现
+     * pwwkew
      * @param s
      * @return
      */
@@ -126,14 +164,11 @@ public class LengthOfLongestSubString {
 
 
     public static void main(String[] args) {
-        System.out.println("abcd".length());
-        System.out.println("abcd".substring(1,4));
 
-//        System.out.println(lengthOfLongestSubstring("abc"));
-        int j= 0;
-        System.out.println("abc".charAt(1));
-        System.out.println("abc".charAt(j++));
-        System.out.println(j++);
+        LengthOfLongestSubString subString = new LengthOfLongestSubString();
+        System.out.println(subString.myLengthOfLongestSubstring("abcabcbb"));
+        System.out.println(subString.myLengthOfLongestSubstring("bbbbb"));
+        System.out.println(subString.ref2LengthOfLongestSubstring("pwwkew"));
 
     }
 }

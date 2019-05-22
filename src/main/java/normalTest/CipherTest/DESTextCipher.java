@@ -59,8 +59,8 @@ public class DESTextCipher {
     public static void main(String[] args) throws GeneralSecurityException {
         long start = System.currentTimeMillis();
         long start1 = System.currentTimeMillis();
-        System.out.println(DESTextCipher.decrypt("6UNgXW6C9G1n3JSz8yyeCA=="));
-        System.out.println(DESTextCipher.decrypt("EVBxFNE9MmiAemjdI2xrdQ=="));
+        System.out.println(DESTextCipher.encrypt("13588073559"));
+        System.out.println(DESTextCipher.encrypt("330107196809170914"));
         long end = System.currentTimeMillis();
         System.out.println("cost1=" + (start1-start));
         System.out.println("cost=" + (end-start));

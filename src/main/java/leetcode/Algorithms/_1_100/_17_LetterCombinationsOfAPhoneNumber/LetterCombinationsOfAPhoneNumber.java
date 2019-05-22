@@ -7,9 +7,11 @@ import java.util.List;
 
 /**
  * Created by jialei.zou on 2018/12/14 .
- * Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.
+ * Given a string containing digits from 2-9 inclusive,
+ * return all possible letter combinations that the number could represent.
 
- A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
+ A mapping of digit to letters (just like on the telephone buttons) is given below.
+ Note that 1 does not map to any letters.
 
  2-abc
  3-def
@@ -32,7 +34,7 @@ import java.util.List;
 public class LetterCombinationsOfAPhoneNumber {
 
 
-    private static HashMap<String, List<String>> initDate(){
+    private static HashMap<String, List<String>> initData(){
         HashMap<String, List<String>> hashMap = new HashMap<String, List<String>>();
         hashMap.put("2", Arrays.asList("a","b","c"));
         hashMap.put("3", Arrays.asList("d","e","f"));
@@ -46,38 +48,10 @@ public class LetterCombinationsOfAPhoneNumber {
     }
 
 
-    /**
-     * 错误行的错误原因，假设后面String都是一个固定值d，第一层如何需要分别循环a、b、c,则循环就成了 ad、bad、cbad
-     * @param arrays
-     * @param from
-     * @param to
-     * @param str
-     * @param map
-     * @return
-     */
-    private static String printAllString(char[] arrays, int from ,int to, String str, HashMap<String, List<String>>map){
-        if(from > to){
-            return "";
-        }
-        List<String> list = map.get(arrays[from]+"");
-        for (int i =0; i<arrays.length; i++){
-            System.out.println("in:"+str);
-            //错误：
-            str = str + list.get(i)+ printAllString(arrays, from+1, to, str, map);
-            System.out.println("out:"+str);
-            if(str.length()==arrays.length){
-                System.out.println("result:"+str);
-                str = "";
-            }
-        }
-        return str;
-    }
-
-
 
     private static void printAllString(String input){
         char[] arrays = input.toCharArray();
-        fixPrintAllString(arrays, 0, arrays.length-1, "",initDate());
+        fixPrintAllString(arrays, 0, arrays.length-1, "",initData());
     }
 
     private static void fixPrintAllString(char[] arrays, int from ,int to, String str, HashMap<String, List<String>>map){
@@ -91,15 +65,55 @@ public class LetterCombinationsOfAPhoneNumber {
         }
     }
 
-    public static void main(String[] args) {
-        printAllString("23");
-//        List<String> list = letterCombinations("23");
-//        System.out.println("list:"+list.toString());
+
+    /**
+     * 总结：
+     * 1. 技巧点1，letters的定义
+     * 2. cmd.equals("")字符串的比较不要在用==这种低级错误了
+     */
+    private String[] letters = new String[]{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+
+    public List<String> letterCombinations(String digits) {
+        List<String> result = new LinkedList<>();
+        if(digits == null || digits.equals("")){
+            return result;
+        }
+        helper(digits, new LinkedList<>(), result);
+        return result;
     }
+
+    private void helper(String cmd, List<String> innerList, List<String> result){
+        if(cmd.equals("")){
+            String item = "";
+            for (String i: innerList){
+                item = item+i;
+            }
+            result.add(item);
+            return;
+        }
+        char[] arrays = letters[cmd.charAt(0)-'0'].toCharArray();
+        for (char c: arrays){
+            innerList.add(c+"");
+            helper(cmd.substring(1), innerList, result);
+            innerList.remove(innerList.size()-1);
+        }
+    }
+
+    public static void main(String[] args) {
+        LetterCombinationsOfAPhoneNumber number = new LetterCombinationsOfAPhoneNumber();
+        List<String> result = number.letterCombinations("23");
+        for (String item: result){
+            System.out.printf(item+",");
+        }
+    }
+
+    /**
+     * 如下是其他人写的,
+     */
 
     private static final String[] KEYS = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
 
-    public static List<String> letterCombinations(String digits) {
+    public static List<String> refLetterCombinations(String digits) {
         List<String> ret = new LinkedList<>();
         combination("", digits, 0, ret);
         return ret;

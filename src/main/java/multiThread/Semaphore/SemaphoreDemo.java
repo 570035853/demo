@@ -10,7 +10,9 @@ public class SemaphoreDemo {
 
     public static void main(String[] args) {
         ThreadPoolExecutor executor = new ThreadPoolExecutor(5,
-                10, 3, TimeUnit.SECONDS, new LinkedBlockingDeque<>(10), new ThreadPoolExecutor.AbortPolicy());
+                10, 3, TimeUnit.SECONDS,
+                new LinkedBlockingDeque<>(10),
+                new ThreadPoolExecutor.AbortPolicy());
 
         final Semaphore semaphore = new Semaphore(5);
         for (int index = 0; index < 21; index++) {

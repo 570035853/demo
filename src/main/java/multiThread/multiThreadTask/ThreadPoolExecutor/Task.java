@@ -13,12 +13,16 @@ public class Task implements Runnable{
 
     @Override
     public void run(){
-        System.out.println("current thread:" + index + " start");
-        try {
-            Thread.sleep(20000);
-        }catch (Exception e){
-            e.printStackTrace();
+//        System.out.println("current thread:" + index + " start");
+//        try {
+//            Thread.sleep(20000);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//        System.out.println("current thread:" + index + " end");
+        int i = 0;
+        while (true){
+//            i++;
         }
-        System.out.println("current thread:" + index + " end");
     }
 }

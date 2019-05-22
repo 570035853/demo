@@ -75,6 +75,10 @@ public class LRUCache<E> {
 
     }
 
+    /**
+     * 其中一个关键点，就是新增的元素或者查询的元素，都会把该元素放到最新的第一个
+     * @param node
+     */
     private void addToTail(Node node){
         node.next = null;
         node.pre = tail;
@@ -83,8 +87,8 @@ public class LRUCache<E> {
     }
 
     private void refresh(Node node){
-        if(tail == node){ //最后一个结点
-        }else if(head == node){ //第一个结点
+        if(tail == node){ //最后一个结点，本身就在最新的位置
+        }else if(head == node){ //第一个结点，最老的位置
             head = head.next;
             addToTail(node);
         }else {  //中间结点

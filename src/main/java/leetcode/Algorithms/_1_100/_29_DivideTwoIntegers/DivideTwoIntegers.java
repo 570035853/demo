@@ -30,7 +30,7 @@ package leetcode.Algorithms._1_100._29_DivideTwoIntegers;
 public class DivideTwoIntegers {
 
     /**
-     * 自己想到的就是不听的减去，同事控制一下正负数
+     * 自己想到的就是不听的减去，同时控制一下正负数
      * @param dividend
      * @param divisor
      * @return

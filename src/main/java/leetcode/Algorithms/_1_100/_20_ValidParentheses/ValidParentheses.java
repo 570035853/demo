@@ -114,6 +114,13 @@ public class ValidParentheses {
 
 
     /*************************以下是ref***********************/
+    /**
+     * 总结：
+     * 1. 使用栈的方式实现
+     * 2. map.containsKey()判断key是否存在的方法
+     * 3. char包含)这些特殊字符
+     * 4. map可以put(char)，自动装箱，之后可以用get(Character)
+     */
 
     // Hash table that takes care of the mappings.
     private HashMap<Character, Character> mappings;

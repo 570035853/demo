@@ -6,7 +6,7 @@ package normalTest;
 public class CeresTable {
 
     public static void main(String[] args) {
-        String userId = "E02C8D8E-FF7D-45BE-A1F5-99EAB7D561FF";
+        String userId = "4DE2C97F-E647-4AE4-AA69-62CBF8AC8083";
         int database = (userId.hashCode()>>>5)&1;
         int table = userId.hashCode() & 15;
         System.out.println("database: ceres_"+database);
@@ -14,5 +14,10 @@ public class CeresTable {
 
         int value = -5 & 15;
         System.out.println("_17_skiplist value:"+value);
+
+        int i=0;
+        while (true){
+            i++;
+        }
     }
 }

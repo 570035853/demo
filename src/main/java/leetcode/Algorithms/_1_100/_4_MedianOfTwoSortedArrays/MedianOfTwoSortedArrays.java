@@ -4,6 +4,25 @@ package leetcode.Algorithms._1_100._4_MedianOfTwoSortedArrays;
  * Created by jialei.zou on 2018/12/11 .
  * 题目要求是算法复杂度是o(log(m+n)),我的实现没有达到，但是题目难度较大，暂时没看，后面看
  * ref:https://leetcode.com/problems/median-of-two-sorted-arrays/solution/
+ There are two sorted arrays nums1 and nums2 of size m and n respectively.
+
+ Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
+
+ You may assume nums1 and nums2 cannot be both empty.
+
+ Example 1:
+
+ nums1 = [1, 3]
+ nums2 = [2]
+
+ The median is 2.0
+ Example 2:
+
+ nums1 = [1, 2]
+ nums2 = [3, 4]
+
+ The median is (2 + 3)/2 = 2.5
+
  */
 public class MedianOfTwoSortedArrays {
 

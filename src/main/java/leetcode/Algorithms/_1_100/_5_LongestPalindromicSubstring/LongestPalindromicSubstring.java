@@ -20,8 +20,48 @@ package leetcode.Algorithms._1_100._5_LongestPalindromicSubstring;
  */
 public class LongestPalindromicSubstring {
 
+    private String result=null;
+    private int maxLength = 0;
+
     public String longestPalindrome(String s) {
-        return null;
+        if(s==null || s.equals("")){
+            return s;
+        }
+        for (int i=0;i<s.length();i++){
+            expand(i, i, s);
+            expand(i, i+1, s);
+        }
+        return result;
+    }
+
+    private void expand(int left, int right, String s){
+        while (true){
+            if(left<0 || right>s.length()-1){
+                return;
+            }
+
+            if(s.charAt(left) == s.charAt(right)){
+                if((right-left+1)>maxLength){
+                    result = s.substring(left, right+1);
+                    maxLength = right-left+1;
+                }
+                left--;
+                right++;
+            }else {
+                break;
+            }
+        }
+    }
+
+
+    public static void main(String[] args) {
+        LongestPalindromicSubstring palindromicSubstring = new LongestPalindromicSubstring();
+        System.out.println(palindromicSubstring.longestPalindrome("abcda"));
+        System.out.println(palindromicSubstring.longestPalindrome("aacda"));
+        System.out.println(palindromicSubstring.longestPalindrome("abada"));
+
+
+//        System.out.println(refDP("abcda"));
     }
 
     /**
@@ -29,7 +69,8 @@ public class LongestPalindromicSubstring {
      * 1. 关注奇数和偶数的判断 aba奇数情况和abba
      * 2. 关注如何记录最大位置
      *
-     * 思路很棒，从中心向两边扩展，又区分了aba奇数情况和abba这种偶数情况(统一的校验逻辑L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R))
+     * 思路很棒，从中心向两边扩展，又区分了aba奇数情况和abba这种偶数情况
+     * (统一的校验逻辑L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R))
      * @param s
      * @return
      */
@@ -95,8 +136,5 @@ public class LongestPalindromicSubstring {
         return R - L - 1;
     }
 
-    public static void main(String[] args) {
 
-        System.out.println(refDP("abcda"));
-    }
 }

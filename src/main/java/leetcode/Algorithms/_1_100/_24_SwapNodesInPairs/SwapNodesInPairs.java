@@ -23,14 +23,8 @@ public class SwapNodesInPairs {
         ListNode cur = head;
         ListNode next;
         ListNode pre = preHead;
-        //第一次提交的时候没有注意第一次交换preHead的变化
-        boolean firstWrap = false;
         while (cur != null && cur.next != null){
             next = cur.next;
-            if(!firstWrap){
-                preHead.next = next;
-                firstWrap = true;
-            }
             cur.next = next.next;
             next.next = cur;
             pre.next = next;
@@ -41,40 +35,22 @@ public class SwapNodesInPairs {
         return preHead.next;
     }
 
-    public ListNode swapPairs1(ListNode head){
-        if(head==null){
-            return null;
+
+    public ListNode refSwapPairs(ListNode head) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode current = dummy;
+        while (current.next != null && current.next.next != null) {
+            ListNode first = current.next;
+            ListNode second = current.next.next;
+            first.next = second.next;
+            current.next = second;
+            current.next.next = first;
+            current = current.next.next;
         }
-        if(head.next==null){
-            return head;
-        }
-
-        ListNode dummyNode=new ListNode(0);
-
-        dummyNode.next=head;
-
-        ListNode curNode=dummyNode.next;
-
-        ListNode nextNode=curNode.next;
-
-
-
-        while(curNode!=null && nextNode !=null){
-
-            ListNode secNode=nextNode.next;
-
-
-            nextNode.next=curNode;
-
-            curNode.next=secNode;
-
-            curNode=secNode;
-
-            nextNode=secNode.next;
-
-        }
-        return dummyNode.next;
+        return dummy.next;
     }
+
 
     public static class ListNode {
         int val;
@@ -94,7 +70,7 @@ public class SwapNodesInPairs {
         node3.next = node4;
         SwapNodesInPairs swapNodesInPairs = new SwapNodesInPairs();
 
-        ListNode result = swapNodesInPairs.swapPairs1(node1);
+        ListNode result = swapNodesInPairs.swapPairs(node1);
         while (result != null){
             System.out.printf(result.val+">");
             result = result.next;

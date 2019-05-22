@@ -11,7 +11,7 @@ public class WaitAndNotify {
                 synchronized (object) {
                     System.out.println("T1 start!");
                     try {
-                        object.wait();
+                        object.wait(10000);
                         SleepUtils.seconds(1);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -25,8 +25,8 @@ public class WaitAndNotify {
             public void run() {
                 synchronized (object) {
                     System.out.println("T2 start!");
-                    object.notifyAll();  //通知所有的，被通知的线程一个挨一个的获取锁，并分别执行后续逻辑
-//                    object.notify(); //随机通知一个
+//                    object.notifyAll();  //通知所有的，被通知的线程一个挨一个的获取锁，并分别执行后续逻辑
+                    object.notify(); //随机通知一个
                     System.out.println("T2 end!");
                 }
             }
@@ -37,8 +37,10 @@ public class WaitAndNotify {
                 synchronized (object) {
                     System.out.println("T3 start!");
                     try {
-                        object.wait();
-                        SleepUtils.seconds(1);
+//                        SleepUtils.seconds(10);
+                        Thread.sleep(10000);
+                        System.out.println("T3 sleep for 10s!");
+//                        object.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -63,17 +65,17 @@ public class WaitAndNotify {
             }
         };
 
-
+        t3.start();
         t1.start();
-//        t3.start();
+
 //        t4.start();
 
         SleepUtils.seconds(5);
-
+        t3.interrupt();
 //        t2.start();
-        t1.interrupt();
+//        t1.interrupt();
         System.out.println("main thread");
-        SleepUtils.seconds(2);
+        SleepUtils.seconds(20);
         System.out.println("main thread wakeup");
 
 
