@@ -2,7 +2,8 @@ package leetcode.Algorithms._1_100._34_FindFirstAndLastPositionOfElementInSorted
 
 /**
  * Created by jialei.zou on 2018/12/15 .
- Given an array of integers nums sorted in ascending order, find the starting and ending position of a given target value.
+ Given an array of integers nums sorted in ascending order,
+ find the starting and ending position of a given target value.
 
  Your algorithm's runtime complexity must be in the order of O(log n).
 

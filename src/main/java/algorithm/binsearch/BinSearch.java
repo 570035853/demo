@@ -6,5 +6,6 @@ package algorithm.binsearch;
 public class BinSearch {
     /**
      * 1. BinSearch类
+     * 2. SearchinRotatedSortedArray
      */
 }

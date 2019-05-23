@@ -1,5 +1,7 @@
 package leetcode.Algorithms._1_100._29_DivideTwoIntegers;
 
+import java.util.BitSet;
+
 /**
  * Created by jialei.zou on 2018/12/22 .
  ref: https://leetcode.com/problems/divide-two-integers/
@@ -11,15 +13,14 @@ package leetcode.Algorithms._1_100._29_DivideTwoIntegers;
  The integer division should truncate toward zero.
 
  Example 1:
-
  Input: dividend = 10, divisor = 3
  Output: 3
- Example 2:
 
+ Example 2:
  Input: dividend = 7, divisor = -3
  Output: -2
- Note:
 
+ Note:
  Both dividend and divisor will be 32-bit signed integers.
  The divisor will never be 0.
  Assume we are dealing with an environment which could only store integers
@@ -30,13 +31,43 @@ package leetcode.Algorithms._1_100._29_DivideTwoIntegers;
 public class DivideTwoIntegers {
 
     /**
-     * 自己想到的就是不听的减去，同时控制一下正负数
+     *
      * @param dividend
      * @param divisor
      * @return
      */
     public int divide(int dividend, int divisor) {
-        return 0;
+        boolean notNegative = (dividend>0 && divisor>0)||(dividend<0 && divisor<0);
+        long dividendLong = dividend;
+        long divisorLong = divisor;
+        if(dividend<0){
+            //如下写法是错误的Integer.MIN_VALUE,
+//            dividendLong = -dividend;
+            dividendLong = -dividendLong;
+        }
+        if(divisor<0){
+//            divisorLong = -divisor;
+            divisorLong = -divisorLong;
+        }
+        long result = practice(dividendLong, divisorLong);
+        if(notNegative){  //可能是Interger.MIN_VALUE/1导致的
+            return result>Integer.MAX_VALUE?Integer.MAX_VALUE:(int)result;
+        }
+        //negative
+        return (int)-result;
+    }
+
+    private long practice(long dividend, long divisor){
+        if(dividend<divisor){
+            return 0;
+        }
+        long sum = divisor;
+        long result =1;
+        while ((sum+sum)<dividend){
+            sum = sum+sum;
+            result =  result + result;
+        }
+        return result+practice(dividend-sum, divisor);
     }
 
     /**
@@ -81,5 +112,16 @@ public class DivideTwoIntegers {
         // Make a recursive call for (devided-sum) and add it to the result
         return negative ? -(divide + divideLong((dividend-sum), divisor)) :
                 (divide + divideLong((dividend-sum), divisor));
+    }
+
+    public static void main(String[] args) {
+        DivideTwoIntegers divide = new DivideTwoIntegers();
+        System.out.println(divide.divide(10,3));
+        System.out.println(divide.divide(Integer.MIN_VALUE,1));
+        System.out.println(divide.divide(Integer.MIN_VALUE,-1));
+
+        System.out.println(-(-200));
+        System.out.println(-(Integer.MIN_VALUE)); //-2147483648
+        System.out.println(Integer.MAX_VALUE+1);
     }
 }

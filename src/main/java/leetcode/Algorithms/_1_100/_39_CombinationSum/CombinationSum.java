@@ -5,7 +5,8 @@ import java.util.*;
 /**
  * Created by jialei.zou on 2018/12/11 .
  ref: https://leetcode.com/problems/combination-sum/
-Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.
+Given a set of candidate numbers (candidates) (without duplicates) and a target number (target),
+ find all unique combinations in candidates where the candidate numbers sums to target.
 
  The same repeated number may be chosen from candidates unlimited number of times.
 
@@ -13,7 +14,7 @@ Given a set of candidate numbers (candidates) (without duplicates) and a target 
 
  All numbers (including target) will be positive integers.
  The solution set must not contain duplicate combinations.
- Example 1:
+ Example 1:der
 
  Input: candidates = [2,3,6,7], target = 7,
  A solution set is:
@@ -35,10 +36,32 @@ public class CombinationSum {
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new LinkedList<>();
+        if(candidates == null || candidates.length<1){
+            return result;
+        }
+        helper(result, new ArrayList<>(), candidates, target, 0);
 
         return result;
 
     }
+
+    private void helper(List<List<Integer>> result, List<Integer> item,int[] candidates, int target, int pos){
+        if(target == 0){
+            result.add(new ArrayList<>(item));
+        }else if(target>0){
+            for (int i = pos; i<candidates.length; i++){
+                item.add(candidates[i]);
+                helper(result, item, candidates, target-candidates[i], i);
+                item.remove(item.size()-1);
+            }
+        }else { //target<0
+            //do nothing
+        }
+    }
+
+    /**
+     * 以上是自己的练习
+     */
 
     /**
      * 1. candidates的子数组
@@ -100,7 +123,11 @@ public class CombinationSum {
     public static void main(String[] args) {
 //        refCombinationSum(new int[]{2, 3}, 7);
 //        permutation(new char[]{'a','b','c'}, 0,2);
-        permutation(new char[]{'a'}, 0,0);
+
+        CombinationSum combinationSum = new CombinationSum();
+
+        List<List<Integer>> result = combinationSum.combinationSum(new int[]{2, 3}, 7);
+        System.out.println();
 
 
     }

@@ -7,6 +7,23 @@ import java.util.List;
 
 /**
  * Created by jialei.zou on 2018/12/22 .
+ https://leetcode.com/problems/permutations/
+
+ Given a collection of distinct integers, return all possible permutations.
+
+ Example:
+
+ Input: [1,2,3]
+ Output:
+ [
+ [1,2,3],
+ [1,3,2],
+ [2,1,3],
+ [2,3,1],
+ [3,1,2],
+ [3,2,1]
+ ]
+
  */
 public class Permutations {
 
@@ -25,7 +42,10 @@ public class Permutations {
     }
 
     private static void recursive(List<List<Integer>> result, int from, int to, int[] num){
+        //这个地方无论from == to还是from == to-1都是没问题的，
+        // 目前更倾向于使用from == to-1，认为最后一个不需要交换
         if(from == to){
+
             result.add(getList(num));
             return;
         }
