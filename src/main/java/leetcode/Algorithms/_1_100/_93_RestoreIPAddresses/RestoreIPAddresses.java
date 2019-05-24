@@ -29,6 +29,13 @@ public class RestoreIPAddresses {
         return result;
     }
 
+    /**
+     * pos=4的时候，进来的temp是1.2.1.这样的已经有三个前缀了
+     * @param result
+     * @param temp
+     * @param s
+     * @param pos
+     */
     private static void permutation(List<String> result, String temp,  String s, int pos){
         //1. 没有判断s.length()>12，导致输入过长字符串，时间超时
         if(s == null || "".equals(s) || s.length()>12){

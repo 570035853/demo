@@ -1,4 +1,4 @@
-package interview;
+package interview.SingleTon;
 
 /**
  * Created by zoujialei on 2018/6/26.
