@@ -14,8 +14,8 @@ public class Stock extends Observable{
     }
 
     public void setPrice(BigDecimal price) {
+        this.price = price;
         super.setChanged();
         super.notifyObservers(price);
-        this.price = price;
     }
 }

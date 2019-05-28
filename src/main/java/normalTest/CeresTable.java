@@ -6,7 +6,7 @@ package normalTest;
 public class CeresTable {
 
     public static void main(String[] args) {
-        String userId = "4DE2C97F-E647-4AE4-AA69-62CBF8AC8083";
+        String userId = "9F8BCC0C-58B0-498A-B960-3FA1A0091ECE";
         int database = (userId.hashCode()>>>5)&1;
         int table = userId.hashCode() & 15;
         System.out.println("database: ceres_"+database);

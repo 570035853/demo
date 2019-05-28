@@ -4,8 +4,10 @@ import java.math.BigDecimal;
 
 /**
  * Created by zoujialei on 18/1/8.
+ * 设计模式：观察者模式
  */
 public class ObserverTest {
+
 
     public static void main(String[] args) {
         Stock shyh = new Stock();

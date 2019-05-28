@@ -18,14 +18,20 @@ public class TempTest {
 
 //        testException();
 //        System.out.println(System.getProperty("user.home"));
-        testSwitch();
+//        testSwitch();
+        try {
+            testException();
+        }catch (Exception e){
+            System.out.println("exception occurred");
+//            e.printStackTrace();
+        }
 
 
     }
 
 
     private static void testException(){
-        throw new RuntimeException("");
+        throw new RuntimeException("hello exception");
     }
 
     private static void printAllString(String a){
