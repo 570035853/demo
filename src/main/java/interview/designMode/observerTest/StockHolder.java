@@ -1,4 +1,4 @@
-package observerTest;
+package interview.designMode.observerTest;
 
 import java.math.BigDecimal;
 import java.util.Observable;
@@ -13,16 +13,5 @@ public class StockHolder implements Observer{
     public void update(Observable o, Object arg){
         String className = this.getClass().getName();
         System.out.println("class:" + className + " price:" + (BigDecimal) arg);
-
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    Thread.sleep(1000);
-//                }catch (Exception e){
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
     }
 }

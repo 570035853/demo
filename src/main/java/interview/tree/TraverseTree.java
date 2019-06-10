@@ -91,6 +91,7 @@ public class TraverseTree {
 
     /**
      * ref: https://blog.csdn.net/xiheandroid/article/details/19908871
+     * 去除叶子节点
      * @param root
      * @return
      */

@@ -15,5 +15,7 @@ public class ThreadLocalDemo {
 
         System.out.println(threadLocal.get());
         System.out.println(threadLocal.get());
+        threadLocal.remove();
+        System.out.println(threadLocal.get());
     }
 }

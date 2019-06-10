@@ -90,10 +90,10 @@ public class ThreeSum {
                 int sum = nums[i]+ nums[left]+nums[right];
                 if(sum == 0){
                     result.add(Arrays.asList(nums[i], nums[left],nums[right]));
-                    while (left+1<=right && nums[left+1]==nums[left]){
+                    while (left+1<right && nums[left+1]==nums[left]){
                         left++;
                     }
-                    while (right-1>=left && nums[right-1]==nums[right]){
+                    while (right-1>left && nums[right-1]==nums[right]){
                         right--;
                     }
                     left++;

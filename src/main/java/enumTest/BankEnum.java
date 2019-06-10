@@ -1,12 +1,17 @@
 package enumTest;
 
+
+import common.ListNode;
+import common.ListNodeUtils;
+
 /**
  * Created by zoujialei on 18/1/9.
  * https://www.w3schools.in/java-tutorial/enumeration/
  * 上述网址介绍的不错，包括背景及Java自己枚举类型特性
  重点如下：
  Values() and valuesOf() methods
- All enumerations automatically contain two predefined methods: values() and valuesOf(). The general forms of these statements are:
+ All enumerations automatically contain two predefined methods: values() and valuesOf().
+ The general forms of these statements are:
 
  public static enum-type[ ] values()
  public static enum-types valuesOf (string str)
@@ -26,18 +31,25 @@ public enum BankEnum {
 
     String desc;
     BankEnum(String desc){
+        getList();
+    }
 
+    public void getList(){
+        ListNode listNode =  ListNodeUtils.getList(new int[]{1,2,3,5,4});
+        ListNodeUtils.printNode(listNode);
+        return;
     }
 
     public static void main(String[] args) {
-        for (BankEnum item : BankEnum.values()){
-            System.out.println(item);
-        }
-        BankEnum itemLowerCase;
-        BankEnum itemUpperCase;
-        itemLowerCase = BankEnum.valueOf("JTYH");
-        itemUpperCase = BankEnum.valueOf("PFYH");
-        System.out.println(itemLowerCase);
-        System.out.println(itemUpperCase);
+        System.out.println(BankEnum.JSYH);
+//        for (BankEnum item : BankEnum.values()){
+//            System.out.println(item);
+//        }
+//        BankEnum itemLowerCase;
+//        BankEnum itemUpperCase;
+//        itemLowerCase = BankEnum.valueOf("JTYH");
+//        itemUpperCase = BankEnum.valueOf("PFYH");
+//        System.out.println(itemLowerCase);
+//        System.out.println(itemUpperCase);
     }
 }

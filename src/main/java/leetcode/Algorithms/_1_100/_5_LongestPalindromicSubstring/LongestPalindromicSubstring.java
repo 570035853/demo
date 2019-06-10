@@ -106,12 +106,15 @@ public class LongestPalindromicSubstring {
      * @return
      */
     public static String refDP(String s) {
+        if (s == null || s.length() < 1) {
+            return "";
+        }
         int n = s.length();
         String res = null;
 
         boolean[][] dp = new boolean[n][n];
 
-        for (int i = n - 1; i >= 0; i--) {
+        for (int i = n-1; i >= 0; i--) {  //关键步骤点：二位矩阵依赖于左下方的元素，所以先要从i最大值开始
             for (int j = i; j < n; j++) {
                 dp[i][j] = s.charAt(i) == s.charAt(j) && (j - i < 3 || dp[i + 1][j - 1]);
 

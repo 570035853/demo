@@ -7,5 +7,6 @@ public class BinSearch {
     /**
      * 1. BinSearch类
      * 2. SearchinRotatedSortedArray
+     * 153. FindMinimumInRotatedSortedArray
      */
 }

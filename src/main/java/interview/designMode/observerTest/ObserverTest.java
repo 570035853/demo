@@ -1,4 +1,4 @@
-package observerTest;
+package interview.designMode.observerTest;
 
 import java.math.BigDecimal;
 

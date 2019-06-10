@@ -1,4 +1,4 @@
-package observerTest;
+package interview.designMode.observerTest;
 
 import java.math.BigDecimal;
 import java.util.Observable;
@@ -8,10 +8,6 @@ import java.util.Observable;
  */
 public class Stock extends Observable{
     private BigDecimal price;
-
-    public BigDecimal getPrice() {
-        return price;
-    }
 
     public void setPrice(BigDecimal price) {
         this.price = price;

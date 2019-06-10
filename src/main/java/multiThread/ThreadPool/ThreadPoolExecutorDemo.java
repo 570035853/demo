@@ -15,7 +15,7 @@ public class ThreadPoolExecutorDemo {
                 2,              //MaxSize
                 60,             //60
                 TimeUnit.SECONDS,
-                new ArrayBlockingQueue<Runnable>(3)         //指定一种队列 （有界队列）
+                new ArrayBlockingQueue<Runnable>(3)  //指定一种队列 （有界队列）
                 //new LinkedBlockingQueue<Runnable>()
                 , new MyRejected().new Handle()
                 //, new DiscardOldestPolicy()
