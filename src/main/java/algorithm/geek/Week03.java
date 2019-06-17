@@ -20,15 +20,15 @@ public class Week03 {
      DFS
      简单：https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/ 104
      中等：https://leetcode-cn.com/problems/number-of-islands/ 200
-     中等：https://leetcode-cn.com/problems/find-eventual-safe-states/
-     困难：https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/
+     中等：https://leetcode-cn.com/problems/find-eventual-safe-states/ 802
+     困难：https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/ 329
      困难：https://leetcode-cn.com/problems/making-a-large-island/
 
      BFS
-     简单：https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal/
-     中等：https://leetcode-cn.com/problems/minesweeper/
-     中等：https://leetcode-cn.com/problems/minimum-height-trees/
-     困难：https://leetcode-cn.com/problems/bus-routes/
+     简单：https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal/  429
+     中等：https://leetcode-cn.com/problems/minesweeper/ 529 dfs和bfs思路都可以了，后续手写提交
+     中等：https://leetcode-cn.com/problems/minimum-height-trees/  310
+     困难：https://leetcode-cn.com/problems/bus-routes/  815
 
 
      本周703题用的时间比较长，主要之前没有用过堆这种数据结构，也没有用到过java对堆的实现类PriorityQueue，看了王争老师的29讲解

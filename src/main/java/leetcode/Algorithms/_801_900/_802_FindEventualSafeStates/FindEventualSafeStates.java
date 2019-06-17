@@ -47,7 +47,7 @@ public class FindEventualSafeStates {
         }
         for (int i=0; i<graph.length; i++){
             Set<Integer> canReachList = new HashSet<>();
-            if(!dfs(canReachList, i, graph)){
+            if(!dfsAdjust(canReachList, i, graph)){
                 result.add(i);
             }
         }
@@ -71,6 +71,30 @@ public class FindEventualSafeStates {
             if(dfs(canReachList, item, graph)){
                 return true;
             }
+        }
+        return false;
+    }
+
+
+    /**
+     * 如下方式如果不考虑运行时间，理论上是可行的，会一条路走到头，考虑到时间的话，就会超时了，
+     * 所以要用ref2中的dfs方式：走过的路就不要在重复了
+     * @param canReachList
+     * @param cur
+     * @param graph
+     * @return
+     */
+    private boolean dfsAdjust(Set<Integer> canReachList, int cur, int[][] graph){
+        int[] toList = graph[cur];
+        for (int item: toList){
+            if(canReachList.contains(cur)){
+                return true;
+            }
+            canReachList.add(cur);
+            if(dfsAdjust(canReachList, item, graph)){
+                return true;
+            }
+            canReachList.remove(cur);
         }
         return false;
     }
@@ -158,12 +182,12 @@ public class FindEventualSafeStates {
      * 自己写如下方式
      *  dfs(Set<Integer> canReachList, int cur, int[][] graph)
      * 问题在：
-     * 并没有区分开终点和非终点类型的数据，这也就是color为啥要有三个状态的原因
+     * 并没有区分开终点和非终点类型的数据，这也就是color为啥要有三个状态的原因（不同的节点都指向最终节点就会出错）
      *
      * 总体思路就是
      * 如果被访问的节点是非终点数据，那么肯定是非终点数据
      * 初始化为非终点数据，递归查看其能到达的所有点，如果有非终点数据，则返回false，并保持非终点数据的标志
-     * 找了能到大的所有数据，发现依旧为非终点数据，则该节点为终点类型的数据，返回true
+     * 找了能到达的所有数据，发现依旧为非终点数据，则该节点为终点类型的数据，返回true
      *
      * 关于Colors
      * 0是初始值
@@ -183,6 +207,9 @@ public class FindEventualSafeStates {
      * @return
      */
     // colors: WHITE 0, GRAY 1, BLACK 2;
+    // 0：是初始化，  1：过程中的用1表示，最终确定有环的也是用1表示，  2：最终节点
+    //
+    // 判断是否是终点类型的数据
     public boolean dfs(int node, int[] color, int[][] graph) {
         if (color[node] > 0){
             return color[node] == 2;
@@ -196,6 +223,17 @@ public class FindEventualSafeStates {
             if (color[nei] == 1 || !dfs(nei, color, graph)){
                 return false;
             }
+            /**
+            上述步骤可以写为：
+             if (color[nei] == 1){
+                  return false;
+             }
+             if(color[nei] == 0){
+                 if(!dfs(nei, color, graph)){
+                    return false;
+                  }
+             }
+             */
         }
 
         color[node] = 2;
@@ -216,10 +254,12 @@ public class FindEventualSafeStates {
 
         System.out.println(safeStates.eventualSafeNodes(new int[][]{
                 {},{0,2,3,4},{3},{4},{}
-        }));
+        }));  // [0,1,2,3,4]   我的错误输出是  0 2 3 4
 
         HashMap map = new HashMap();
 
     }
+
+
 
 }

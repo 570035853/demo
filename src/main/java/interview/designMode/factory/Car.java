@@ -1,4 +1,4 @@
-package interview.factory;
+package interview.designMode.factory;
 
 public interface Car {
 
