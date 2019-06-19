@@ -17,15 +17,15 @@ public class Week01 {
      困难：https://leetcode.com/problems/reverse-nodes-in-k-group/
 
      数组
-     简单：https://leetcode.com/problems/sort-array-by-parity/
-     简单：https://leetcode.com/problems/sort-array-by-parity-ii/
-     中等：https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
-     中等：https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
-     困难：https://leetcode.com/problems/search-in-rotated-sorted-array
+     简单：https://leetcode.com/problems/sort-array-by-parity/ 905
+     简单：https://leetcode.com/problems/sort-array-by-parity-ii/ 922
+     中等：https://leetcode.com/problems/search-in-rotated-sorted-array-ii/ 81
+     中等：https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/  153
+     困难：https://leetcode.com/problems/search-in-rotated-sorted-array  33
 
      栈
-     简单：https://leetcode.com/problems/valid-parentheses/
-     中等：https://leetcode.com/problems/next-greater-element-ii/
+     简单：https://leetcode.com/problems/valid-parentheses/  20
+     中等：https://leetcode.com/problems/next-greater-element-ii/  503
      困难：https://leetcode.com/problems/maximum-frequency-stack/  暂时不做
 
      递归
@@ -34,12 +34,12 @@ public class Week01 {
      困难：https://leetcode.com/problems/special-binary-string/
 
      排序
-     简单：https://leetcode.com/problems/valid-anagram/
+     简单：https://leetcode.com/problems/valid-anagram/  242
      中等：https://leetcode.com/problems/wiggle-sort-ii/
      困难：https://leetcode.com/problems/maximum-gap/
 
      二分查找
-     简单：https://leetcode.com/problems/arranging-coins/
+     简单：https://leetcode.com/problems/arranging-coins/  441
      中等：https://leetcode.com/problems/powx-n/
      困难：https://leetcode.com/problems/dungeon-game/
 
