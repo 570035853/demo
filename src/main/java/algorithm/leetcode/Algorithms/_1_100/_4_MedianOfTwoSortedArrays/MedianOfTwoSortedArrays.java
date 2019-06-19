@@ -62,12 +62,13 @@ public class MedianOfTwoSortedArrays {
     /**
      * 看ref的讲解思路比较好：
      * https://leetcode.com/articles/median-of-two-sorted-arrays/
-     * 1. 把一个整体分为两部分，左侧最大小于右侧最小，则可以找到中间的一个值或者两个值，
-     *    m、n长度的两个数组，m在i处切开，n在j处切开，保证i左侧和j左侧个数之和等于右侧即可；
-     * 2. 寻找i的过程用二分产找，j根据i的值确定
-     * 3. halfLen = (m + n + 1) / 2; 里面有一个+1的操作，是为了遇到如下情况
-     *   数组长度是n=2 m=5 则分作左右两侧，左侧4个，右侧3个，所以 if ( (m + n) % 2 == 1 ) { return maxLeft; }
-     *   如果是没有加1的动作，则结果应该是取右侧最小值（左侧3个，右侧4个）
+     * 如左侧图片所示，该问题的解决思路是将两个数据分为了两部分，其他的关键点又
+     * 1. i和j所在位置的数字属于右侧部分
+     * 2. 如果两个数组之和是奇数，左侧部分的数量比右侧部分多一个，所以取返回值，直接取左侧部分的最大就可以；
+     * 3. 当i=0时，说明小的数组全部都属于右侧部分，当i=m的时候，说明小的数组全部属于左侧部分，详细可见图
+     * 4. 按照二分数组查找即可
+     *
+     *
      *
      *   详细的阐述可见ref
      * @param A
@@ -114,8 +115,9 @@ public class MedianOfTwoSortedArrays {
     }
 
     public static void main(String[] args) {
-//        System.out.println(findMedianSortedArrays(new int[]{1,2}, new int[]{3}));
-        System.out.println(findMedianSortedArrays(new int[]{1,2}, new int[]{3,4}));
+
+        MedianOfTwoSortedArrays median = new MedianOfTwoSortedArrays();
+        System.out.println(median.refFindMedianSortedArrays(new int[]{1,2}, new int[]{7,8,9,10,11}));
 
     }
 }
