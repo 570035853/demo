@@ -11,7 +11,6 @@ public class NumberOfIslands {
         if(grid == null || grid.length<1){
             return 0;
         }
-        char a = '1';
         boolean[][] visited = new boolean[grid.length][grid[0].length];
         int count = 0;
         for (int i=0; i<grid.length; i++){

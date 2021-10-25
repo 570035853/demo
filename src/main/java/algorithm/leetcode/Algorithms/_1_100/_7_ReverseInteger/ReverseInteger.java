@@ -95,6 +95,11 @@ public class ReverseInteger {
         System.out.println(-4/10);
         System.out.println(-466%10);
         System.out.println(-5%3);
+        System.out.println("**********");
+        System.out.println(Integer.parseInt("567"));
+        System.out.println(Integer.parseInt("-567"));
+        System.out.println(Integer.parseInt("-56788888888888888"));
+
 
     }
 

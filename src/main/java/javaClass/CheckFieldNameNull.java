@@ -1,8 +1,6 @@
 package javaClass;
 
 import org.apache.commons.lang.StringUtils;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
-import sun.tools.java.ClassType;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

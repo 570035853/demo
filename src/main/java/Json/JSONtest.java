@@ -37,8 +37,11 @@ public class JSONtest {
 
         Map<String, Object> callBackNameFromJson = JSON.parseObject(dataCallBackName, Map.class);
 
-        Map<String, Object> fromEmptyJson = JSON.parseObject(empty, Map.class);
 
-        System.out.println("end");
+        String desc = "评价得{num}金豆".replace("{num}", "12");
+        System.out.println(desc);
+        String desc1 = "评价得金豆{num}".replace("{num}", "");
+        System.out.println(desc1);
+
     }
 }

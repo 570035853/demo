@@ -45,6 +45,7 @@ public class GenerateParentheses{
             ref1GenerateParentheses(result, item+"(", left+1, right, n);
         }
         if(right<n &&right<left){
+        // 或者条件判断也可以 if(right<left){
             ref1GenerateParentheses(result, item+")", left, right+1, n);
         }
     }

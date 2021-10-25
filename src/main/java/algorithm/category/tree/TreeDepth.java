@@ -1,4 +1,5 @@
-package interview.tree;
+package algorithm.category.tree;
+
 
 public class TreeDepth {
 
@@ -14,5 +15,17 @@ public class TreeDepth {
         int left = getTreeDepth(node.leftNode);
         int right = getTreeDepth(node.rightNode);
         return left>right?(left+1):(right+1);
+    }
+
+    class TreeNode {
+        public int data;
+        public TreeNode leftNode;
+        public TreeNode rightNode;
+
+        public TreeNode(int data){
+            this.data = data;
+            leftNode = null;
+            rightNode = null;
+        }
     }
 }

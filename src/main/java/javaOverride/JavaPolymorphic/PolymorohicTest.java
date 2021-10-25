@@ -5,6 +5,10 @@ package javaOverride.JavaPolymorphic;
  */
 public class PolymorohicTest {
 
+    /**
+     * 多态
+     * @param args
+     */
     public static void main(String[] args) {
         Animal dog = new Dog();
         Animal cat = new Cat();

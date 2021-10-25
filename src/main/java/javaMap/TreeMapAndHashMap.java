@@ -13,10 +13,10 @@ public class TreeMapAndHashMap {
     public static void main(String[] args) {
         //HashMap 遍历是不按顺序排列
         Map map=new HashMap();
-        map.put("m1", "m11");
-        map.put("m2", "m22");
-        map.put("m3", "m33");
-        map.put("m4", "m44");
+        map.put("1", "m22");
+        map.put("4", "m44");
+        map.put(11, "m11");
+        map.put(3, "m33");
         Iterator iter=map.entrySet().iterator();
         while(iter.hasNext()){
             Map.Entry entry=(Map.Entry) iter.next();
@@ -28,12 +28,11 @@ public class TreeMapAndHashMap {
         //TreeMap 遍历是按顺序排列
 
         Map treemap=new TreeMap();
-        treemap.put("t1", "t11");
-        treemap.put("t4", "t44");
-        treemap.put("t2", "t22");
-        treemap.put("t3", "t33");
-        treemap.put("t5", "t55");
-
+        treemap.put(3, "t22");
+        treemap.put(4, "t33");
+        treemap.put(5, "t55");
+        treemap.put(1, "t11");
+        treemap.put(2, "t44");
         Iterator titer=treemap.entrySet().iterator();
         while(titer.hasNext()){
             Map.Entry ent=(Map.Entry )titer.next();

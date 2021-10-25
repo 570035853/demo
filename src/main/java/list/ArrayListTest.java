@@ -56,11 +56,13 @@ public class ArrayListTest {
 //        System.out.println("***********************");
 //        printNameWithIterator(getNameList());
 
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        list.add(1);
-        list.add(null);
-        list.add(null);
-        System.out.println("list size:" + list.size() + "list:" + list.toString());
+
+
+        System.out.println("".concat("一级类目").concat("/").concat("二级类目"));
+
+
+
+
 
     }
 

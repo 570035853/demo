@@ -9,9 +9,9 @@ public class InnerClassSingleTon {
 
     }
     private static class SingleTonHolder{
-        static {
-            System.out.println("static block");
-        }
+//        static {
+//            System.out.println("static block");
+//        }
         private static InnerClassSingleTon singleTon = new InnerClassSingleTon();
     }
 

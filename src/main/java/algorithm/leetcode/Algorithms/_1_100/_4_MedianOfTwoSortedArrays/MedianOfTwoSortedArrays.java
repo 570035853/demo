@@ -117,6 +117,8 @@ public class MedianOfTwoSortedArrays {
     public static void main(String[] args) {
 
         MedianOfTwoSortedArrays median = new MedianOfTwoSortedArrays();
+        System.out.println(median.refFindMedianSortedArrays(new int[]{1}, new int[]{7}));
+
         System.out.println(median.refFindMedianSortedArrays(new int[]{1,2}, new int[]{7,8,9,10,11}));
 
     }

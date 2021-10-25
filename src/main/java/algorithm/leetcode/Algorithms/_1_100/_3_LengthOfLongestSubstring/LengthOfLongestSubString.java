@@ -127,6 +127,8 @@ public class LengthOfLongestSubString {
 
     /**
      *
+     * i = Math.max(map.get(s.charAt(j)), i);的原因是
+     * 可能有如下字符串：abcdba这种，重复的a出现在重复的b后面，
      * @param s
      * @return
      */
@@ -143,6 +145,27 @@ public class LengthOfLongestSubString {
         }
         return ans;
     }
+
+    public int lengthOfLongestSubstringOptimizePractise(String s) {
+        int n = s.length(), ans = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        // try to extend the range [i, j]
+        char[] arrays = s.toCharArray();
+        for (int j = 0, i = 0; j < n; j++) {
+            if(map.containsKey(arrays[j])){
+                int pre = map.get((arrays[j]));
+                for (int k = i; k<=pre; k++){
+                    map.remove(arrays[k]);
+                }
+                i=pre+1;
+            }
+            map.put(arrays[j], j);
+            ans = Math.max(ans, j-i+1);
+        }
+        return ans;
+    }
+
+
 
     /**
      * 1. set里面的E，char对应的是Character
@@ -169,6 +192,8 @@ public class LengthOfLongestSubString {
         System.out.println(subString.myLengthOfLongestSubstring("abcabcbb"));
         System.out.println(subString.myLengthOfLongestSubstring("bbbbb"));
         System.out.println(subString.ref2LengthOfLongestSubstring("pwwkew"));
+        System.out.println(subString.lengthOfLongestSubstringOptimizePractise("pwwkew"));
+
 
     }
 }

@@ -44,12 +44,12 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/org.jfree/jfreechart -->
-        <dependency>
-            <groupId>org.jfree</groupId>
-            <artifactId>jfreechart</artifactId>
-            <version>1.0.19</version>
-        </dependency>
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.jfree/jfreechart &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.jfree</groupId>-->
+            <!--<artifactId>jfreechart</artifactId>-->
+            <!--<version>1.0.19</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>com.mashape.unirest</groupId>
@@ -57,19 +57,25 @@
             <version>1.4.9</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
         <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-            <version>2.3.23</version>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.9.9</version>
+
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
+               <!--<dependency>-->
+        <!--<groupId>org.freemarker</groupId>-->
+        <!--<artifactId>freemarker</artifactId>-->
+        <!--<version>2.3.23</version>-->
+        <!--</dependency>-->
 
         <!-- https://mvnrepository.com/artifact/net.sf.json-lib/json-lib -->
-        <dependency>
-            <groupId>net.sf.json-lib</groupId>
-            <artifactId>json-lib</artifactId>
-            <version>2.4</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>net.sf.json-lib</groupId>-->
+<!--            <artifactId>json-lib</artifactId>-->
+<!--            <version>2.4</version>-->
+<!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/net.sf.json-lib/json-lib-ext-spring -->
         <dependency>
@@ -97,6 +103,12 @@
             <groupId>io.reactivex.rxjava2</groupId>
             <artifactId>rxjava</artifactId>
             <version>2.1.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>2.2.6</version>
         </dependency>
 
         <dependency>
