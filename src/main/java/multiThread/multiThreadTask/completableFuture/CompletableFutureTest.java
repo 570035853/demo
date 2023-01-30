@@ -9,6 +9,16 @@ import java.util.concurrent.*;
  * @date 2021/11/3
  * 可见 (最终依赖系统提供的方法，阻塞相应的时间，看到系统层就先不用看了)
  * {@link multiThread.LockSupport.LockSupportDemo}
+ *
+ * 1.相对于ListenableFuture来说，优势就是一点：可组合，可编排，这一点的美团技术文章见https://tech.meituan.com/2022/05/12/principles-and-practices-of-completablefuture.html
+ * 2.本文章基本把如何使用将清楚了：https://juejin.cn/post/7100402930083168292
+ * 简单总结下：
+ * 1）runAsync和supplyAsync分别对应Runnable和Supplier接口，Run没有返回值，supply有返回值
+ * 2）non-sync和sync区别：sync方法要么使用系统自带的commonPool执行，要么使用使用调用者传入的线程池执行；
+ *      non-sync的thenApply由谁执行：要看注册时候，被依赖的操作是否已经执行完成，如果执行完成，则用当前线程执行thenApply，否则用依赖线程执行
+ * 3）每个动作基本都对应三个方法，一个同步执行，两个异步执行（异步执行有一个由commonPool线程池执行，一个由用户自定义线程池执行）
+ * 4）方法有顺序执行（支持结果转换）、两个任务执行（一个先执行、同时都执行后才执行Action，两个中一个完成执行Action）、多任务执行（全部执行后执行Action，一个完成后执行Action）
+ * 5）没觉得thenApply和thenCompose有啥区别？？？后续在看
  */
 public class CompletableFutureTest {
 
@@ -38,7 +48,7 @@ public class CompletableFutureTest {
 
         //可以理解为一次RPC 获取女性体重
         CompletableFuture<Integer> womenWeight =
-                CompletableFuture.supplyAsync(()->CaculateWeight.getWomenWeight(), pool);
+                CompletableFuture.supplyAsync(()->CaculateWeight.getWomenWeight(2), pool);
 
         //可以理解为一次RPC 获取总计体重
         CompletableFuture<Integer> totalWeight = manWeight.thenCombineAsync(womenWeight,
