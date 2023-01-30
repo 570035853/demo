@@ -1,5 +1,7 @@
 package algorithm.FrequentlyUsedMethod;
 
+import lambdaTest.Comment;
+
 import java.util.*;
 import java.util.List;
 
@@ -16,20 +18,39 @@ public class IteratorTest {
      * @param args
      */
     public static void main(String[] args) {
-        Set<Integer> set = new HashSet<>();
-        set.add(5);
-        set.add(6);
-        set.add(15);
-        IteratorTest test = new IteratorTest();
-        test.removeBigValue1(10, set);
-        test.printSet(set);
+//        Set<Integer> set = new HashSet<>();
+//        set.add(5);
+//        set.add(6);
+//        set.add(15);
+//        IteratorTest test = new IteratorTest();
+////        test.removeBigValue1(10, set);
+////        test.printSet(set);
+//
+//        set.add(16);
+//        set.add(10);
+//        test.printSet(set);
+//        test.removeBigValue2(10, set);
+//        test.printSet(set);
 
-        set.add(16);
-        test.printSet(set);
-        test.removeBigValue2(10, set);
-        test.printSet(set);
+        Comment comment1 = new Comment(1, "test123");
+        Comment comment2 = new Comment(2, "test223");
+        Comment comment3 = new Comment(3, "test323");
+        Map<Long, Comment> map = new HashMap<>();
+        map.put(1L, comment1);
+        map.put(2L, comment2);
+        map.put(3L, comment3);
 
-
+        Iterator<Long> iterator = map.keySet().iterator();
+        while (iterator.hasNext()){
+            Long id = iterator.next();
+            if(id == 1L){
+                iterator.remove();
+            }
+            if(id ==2L){
+                iterator.remove();
+            }
+        }
+        System.out.println(map.size());
 
     }
 
